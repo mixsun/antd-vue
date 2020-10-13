@@ -8,15 +8,9 @@
         v-model:selectedKeys="selectedKeys1"
         :style="{ lineHeight: '64px' }"
       >
-        <a-menu-item key="1">
-          nav 1
-        </a-menu-item>
-        <a-menu-item key="2">
-          nav 2
-        </a-menu-item>
-        <a-menu-item key="3">
-          nav 3
-        </a-menu-item>
+        <a-menu-item key="1"> nav 1 </a-menu-item>
+        <a-menu-item key="2"> nav 2 </a-menu-item>
+        <a-menu-item key="3"> nav 3 </a-menu-item>
       </a-menu>
     </a-layout-header>
     <a-layout>
@@ -63,9 +57,27 @@
           <a-breadcrumb-item>App</a-breadcrumb-item>
         </a-breadcrumb>
         <a-layout-content
-          :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
+          :style="{
+            background: '#fff',
+            padding: '24px',
+            margin: 0,
+            minHeight: '280px',
+          }"
         >
-          Content
+          <p>Content</p>
+
+          <a-button-group>
+            <a-button type="primary"> <LeftOutlined />Go back </a-button>
+            <a-button type="primary"> Go forward<RightOutlined /> </a-button>
+          </a-button-group>
+          <a-button-group>
+            <a-button type="primary">
+              <template v-slot:icon><CloudOutlined /></template>
+            </a-button>
+            <a-button type="primary">
+              <template v-slot:icon><CloudDownloadOutlined /></template>
+            </a-button>
+          </a-button-group>
         </a-layout-content>
       </a-layout>
     </a-layout>
@@ -73,20 +85,32 @@
 </template>
 
 <script>
-import { UserOutlined, LaptopOutlined, NotificationOutlined } from '@ant-design/icons-vue';
+import {
+  UserOutlined,
+  LaptopOutlined,
+  NotificationOutlined,
+  LeftOutlined,
+  RightOutlined,
+  CloudDownloadOutlined,
+  CloudOutlined,
+} from "@ant-design/icons-vue";
 
 export default {
   components: {
     UserOutlined,
     LaptopOutlined,
     NotificationOutlined,
+    LeftOutlined,
+    RightOutlined,
+    CloudDownloadOutlined,
+    CloudOutlined,
   },
   data() {
     return {
-      selectedKeys1: ['2'],
-      selectedKeys2: ['1'],
+      selectedKeys1: ["2"],
+      selectedKeys2: ["1"],
       collapsed: false,
-      openKeys: ['sub1'],
+      openKeys: ["sub1"],
     };
   },
 };
